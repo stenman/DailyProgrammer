@@ -13,21 +13,23 @@ public class ShufflingAList {
 		kalle.add("Nisse");
 		kalle.add("Pelle");
 		kalle.add("Apan");
-		kalle.add("Pissihuvet");
-		shuffle(kalle);
+		kalle.add("Huvvet");
+		System.out.println(shuffle(kalle));
 	}
 
-	static void shuffle(List<?> list) {
+	static List<String> shuffle(List<?> list) {
 		Random r = new Random();
 		int nextInt = r.nextInt(list.size());
 		List<Integer> usedInts = new ArrayList<Integer>();
+		List<String> shuffledList = new ArrayList<String>();
 		for (int i = 0; i < list.size(); i++) {
 			while (usedInts.contains(nextInt)) {
 				nextInt = r.nextInt(list.size());
 			}
 			usedInts.add(nextInt);
-			System.out.println(list.get(nextInt));
+			shuffledList.add((String) list.get(nextInt));
 		}
+		return shuffledList;
 
 	}
 
